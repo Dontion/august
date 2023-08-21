@@ -112,7 +112,7 @@
             <span class="nav-link">Daftar </span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="pendaftaran.php">
               <span class="menu-icon">
                 <i class="mdi mdi-pencil"></i>
               </span>
@@ -120,7 +120,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="pendaftaran.php">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -131,7 +131,7 @@
             <span class="nav-link">Daftar </span>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/icons/mdi.html">
+            <a class="nav-link" href="register.php">
               <span class="menu-icon">
                 <i class="mdi mdi-account"></i>
               </span>
@@ -286,7 +286,7 @@
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject mb-1">Aldon</p>
+                      <p class="preview-subject mb-1">Aldoni</p>
                       <p class="text-muted ellipsis mb-0"> New admin wow! </p>
                     </div>
                   </a>
