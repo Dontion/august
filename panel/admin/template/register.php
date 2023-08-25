@@ -1,45 +1,36 @@
 <?php include "header.php" ; ?>
 
-<?php
+<body id="page-top">
 
-
-include 'connection.php';
-if (isset($_POST['regis'])) {
-  $name = strtolower(stripcslashes$_POST['name']);
-  $password = mysqli_real_escape_string($conn, $_POST['password']);
-  $password2 = mysqli_real_escape_string($conn, $_POST['password2']);
-  $email = htmlspecialchars($_POST['email']);
-  $akses = htmlspecialchars($_POST[akses]);
-
-  // cek username
-  $result = mysqli_query($conn, "SELECT username FROM user WHERE username ='$username");
-}
-?>
 <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Register Form</h4>
                     <p class="card-description">  Register Form </p>
-                    <form class="forms-sample">
+                    <form class="forms-sample" method="post" action="proses_regis.php">
                       <div class="form-group">
                         <label for="exampleInputName1">Username</label>
-                        <input type="text" class="form-control" id="exampleInputName1" name="username" placeholder="Name">
+                        <input type="text" class="form-control" name="username" id="username" placeholder="Name" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" name="email" placeholder="Email">
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" name="password" placeholder="Password">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword4">Ulangi Passowrd</label>
-                        <input type="password" class="form-control" id="exampleInputPassword5" name="password2" placeholder="Password2">
-                      </div>'
+                        <label for="exampleInputPassword4">Retry Password</label>
+                        <input type="password" class="form-control" id="password2"  name="password2" placeholder="Please input password again" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName5">Name account</label>
+                        <input type="text" class="form-control" name="nama" id="nama" placeholder="input ur acc name" required>
+                      </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Pilih Hak Akses</label>
-                        <select class="form-control" name="akses" id="exampleSelectGender">
+                        <select class="form-control" id="hakakses" name="akses" required>
                           <option>Operator</option>
                           <option>Admin</option>
                         </select>
@@ -51,4 +42,21 @@ if (isset($_POST['regis'])) {
                 </div>
               </div>
 
+
+<script>
+    function validateForm() {
+        var nama = document.getElementById("nama").value;
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("Password").value;
+        var repeatPassword = document.getElementById("RepeatPassword").value;
+        var hakakses = document.getElementById("hakakses").value;
+
+        if (nama === "" || username === "" || email === "" || password === "" || repeatPassword === "" || hakakses === "") {
+            alert("Please fill in all fields");
+            return false;
+        }
+        return true;
+    }
+</script>
 <?php include "footer.php" ; ?>              
