@@ -1,10 +1,10 @@
 <?php
 session_start();
-include 'admin/template/connection.php';
+include 'conn.php';
 
 // Check if user is already logged in using session
 if (isset($_SESSION["login"])) {
-  header("Location: admin/template/index.php");
+  header("Location: index.php");
   exit;
 }
 
@@ -21,7 +21,7 @@ if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
 
   if ($row && $key === hash('sha256', $row['username'])) {
     $_SESSION['login'] = true;
-    header("Location: admin/template/index.php");
+    header("Location: index.php");
     exit;
   }
 }
@@ -52,13 +52,13 @@ if (isset($_POST['Login'])) {
         setcookie('key', $secure_key, time() + 60, "/", null, true, true);
       }
 
-      header("Location: admin/template/index.php");
+      header("Location: index.php");
       exit;
     } else {
       echo "
       <script>
           alert('Password Salah!');
-          window.location.href = 'loginn.php';
+          window.location.href = 'login.php';
       </script>
       ";
     }
@@ -66,7 +66,7 @@ if (isset($_POST['Login'])) {
     echo "
     <script>
         alert('Username Tidak Ditemukan!');
-        window.location.href = 'loginn.php';
+        window.location.href = 'login.php';
     </script>
     ";
   }
@@ -82,8 +82,8 @@ if (isset($_POST['Login'])) {
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: rgb(255,255,255);
-            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(239,253,29,1) 32%, rgba(252,176,69,1) 70%, rgba(244,71,44,1) 100%);
+            background: rgb(224,243,246);
+            background: linear-gradient(150deg, rgba(224,243,246,1) 27%, rgba(255,255,0,1) 100%);
             
             justify-content: center;
             align-items: center;
@@ -94,7 +94,6 @@ if (isset($_POST['Login'])) {
         h1 {
             text-align: center;
             margin-top: 50px;
-            font-family: 
         }
 
         form {
@@ -135,8 +134,8 @@ if (isset($_POST['Login'])) {
     <h1>Login</h1>
     <form method="post">
         <center>
+        <img src="logo.ico  " alt="Avatar">
         </center><br>
-        <img src="luffy.png" width= "300px" height="250px">
         <input type="text" name="username" placeholder="Username" alt="username" required="required"><br>
         <input type="password" name="password" placeholder="Password" alt="password" required="required"><br><br>
         <input type="submit" name="Login" value="Login" alt="submit">

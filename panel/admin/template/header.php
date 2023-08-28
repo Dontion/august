@@ -77,6 +77,17 @@
                     <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
                   </div>
                 </a>
+                <div class="dropdown-divider"></div>
+                <a href="../../logoutt.php" class="dropdown-item preview-item">
+                  <div class="preview-thumbnail">
+                    <div class="preview-icon bg-dark rounded-circle">
+                      <i class="mdi mdi-logout text-danger"></i>
+                    </div>
+                  </div>
+                  <div class="preview-item-content">
+                    <p class="preview-subject ellipsis mb-1 text-small">Logout</p>
+                  </div>
+                </a>
               </div>
             </div>
           </li>
@@ -322,8 +333,9 @@
                         <i class="mdi mdi-logout text-danger"></i>
                       </div>
                     </div>
-                    <div class="preview-item-content">
+                    <div class="preview-item-content" href="../../logoutt.php">
                       <p class="preview-subject mb-1">Log out</p>
+
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
