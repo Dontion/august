@@ -10,7 +10,7 @@ setcookie('key', '', time() - 3600);
 
 echo "
     <script>
-        alert('Log Out Sukses!');
+        alert('Log Out Sukses! babayyyyy....');
         document.location.href='./loginn.php';
     </script>
     ";

@@ -83,7 +83,7 @@ if (isset($_POST['Login'])) {
         body {
             font-family: Arial, sans-serif;
             background: rgb(255,255,255);
-            background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(239,253,29,1) 32%, rgba(252,176,69,1) 70%, rgba(244,71,44,1) 100%);
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(239,253,29,1) 32%, rgba(252,176,69,1) 70%, rgba(244,71,44,1) 100%);
             
             justify-content: center;
             align-items: center;
@@ -93,8 +93,8 @@ if (isset($_POST['Login'])) {
 
         h1 {
             text-align: center;
-            margin-top: 50px;
-            font-family: 
+            margin-top: 30px;
+            font-size: 60px;
         }
 
         form {

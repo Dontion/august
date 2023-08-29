@@ -31,8 +31,8 @@
                       <div class="form-group">
                         <label for="exampleSelectGender">Pilih Hak Akses</label>
                         <select class="form-control" id="hakakses" name="akses" required>
-                          <option>Operator</option>
-                          <option>Admin</option>
+                          <option value="operator">Operator</option>
+                          <option value="admin">Admin</option>
                         </select>
                       
                       <button type="submit" name="regis" class="btn btn-primary mr-2">Submit</button>

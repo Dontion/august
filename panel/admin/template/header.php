@@ -1,3 +1,19 @@
+<?php 
+  session_start();
+  if (!isset($_SESSION['login'])) {
+
+?>
+    <script>
+        alert("LOGIN DULUUU CUIII!!!");
+        window.open('../../loginn.php', '_self');
+    </script>
+<?php
+  }else {
+      $status = $_SESSION['hak_akses'];
+  }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -85,7 +101,7 @@
                     </div>
                   </div>
                   <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">Logout</p>
+                    <p class="preview-subject ellipsis mb-1 text-small">logout</p>
                   </div>
                 </a>
               </div>
@@ -112,9 +128,9 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Agama</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Kewarganegaraan</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Jurusan</a></li>
+                <li class="nav-item"> <a class="nav-link" href="Agama.php">Agama</a></li>
+                <li class="nav-item"> <a class="nav-link" href="Kewarganegaraan.php">Kewarganegaraan</a></li>
+                <li class="nav-item"> <a class="nav-link" href="Jurusan.php">Jurusan</a></li>
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Jenjang</a></li>
               </ul>
             </div>
@@ -131,7 +147,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pendaftaran.php">
+            <a class="nav-link" href="data_pendaftar.php">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
