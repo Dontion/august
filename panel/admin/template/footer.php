@@ -23,6 +23,8 @@
     <script src="assets/vendors/owl-carousel-2/owl.carousel.min.js"></script>
     <!-- End plugin js for this page -->
     <!-- inject:js -->
+    <script src="assets/js/js_datatb_1.js"></script>
+    <script src="assets/js/js_datatb_3.js"></script>
     <script src="assets/js/off-canvas.js"></script>
     <script src="assets/js/hoverable-collapse.js"></script>
     <script src="assets/js/misc.js"></script>

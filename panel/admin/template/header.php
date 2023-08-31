@@ -30,6 +30,9 @@
     <link rel="stylesheet" href="assets/vendors/flag-icon-css/css/flag-icon.min.css">
     <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <link rel="stylesheet" href="asset/vendors/datatables_css/css_datatb_1.css">
+    <link rel="stylesheet" href="asset/vendors/datatables_css/css_datatb_2.css">
+    <script src="assets/js/js_datatb_2.js"></script>
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -93,18 +96,6 @@
                     <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
                   </div>
                 </a>
-                <div class="dropdown-divider"></div>
-                <a href="../../logoutt.php" class="dropdown-item preview-item">
-                  <div class="preview-thumbnail">
-                    <div class="preview-icon bg-dark rounded-circle">
-                      <i class="mdi mdi-logout text-danger"></i>
-                    </div>
-                  </div>
-                  <div class="preview-item-content">
-                    <p class="preview-subject ellipsis mb-1 text-small">logout</p>
-                  </div>
-                </a>
-              </div>
             </div>
           </li>
           <li class="nav-item menu-items">
@@ -115,6 +106,9 @@
               <span class="menu-title">Home</span>
             </a>
           </li>
+
+          <?php if($_SESSION['hak_akses'] == 'admin'):    ?>
+
           <li class="nav-item nav-category">
             <span class="nav-link">Database </span>
           </li>
@@ -123,6 +117,7 @@
               <span class="menu-icon">
                 <i class="mdi mdi-account-multiple"></i>
               </span>
+
               <span class="menu-title">Master</span>
               <i class="menu-arrow"></i>
             </a>
@@ -135,6 +130,9 @@
               </ul>
             </div>
           </li>
+
+            <?php endif; ?>
+
           <li class="nav-item nav-category">
             <span class="nav-link">Daftar </span>
           </li>
@@ -154,9 +152,15 @@
               <span class="menu-title">Data Pendaftaran</span>
             </a>
             </li>
+
+            <?php if($_SESSION['hak_akses'] == 'admin'):    ?>
+            
             <li class="nav-item nav-category">
             <span class="nav-link">Daftar </span>
           </li>
+
+        
+
           <li class="nav-item menu-items">
             <a class="nav-link" href="register.php">
               <span class="menu-icon">
@@ -165,7 +169,7 @@
               <span class="menu-title">Register</span>
             </a>
           </li>
-         
+            <?php endif; ?>
         </ul>
       </nav>
       <!-- partial -->
@@ -343,7 +347,7 @@
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a class="dropdown-item preview-item">
+                  <a onclick="return confirm('Beneran Log Out nih??');" href="../../logoutt.php" class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
                       <div class="preview-icon bg-dark rounded-circle">
                         <i class="mdi mdi-logout text-danger"></i>
@@ -351,7 +355,6 @@
                     </div>
                     <div class="preview-item-content" href="../../logoutt.php">
                       <p class="preview-subject mb-1">Log out</p>
-
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
