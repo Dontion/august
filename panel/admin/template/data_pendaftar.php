@@ -3,6 +3,8 @@
 
 <body id="page-top">
     <div class="container">
+        <br><br><br><br><br>
+        <a class="btn btn-warning btn-sm" type="button" href="register.php"><i class="mdi mdi-border-color"></i> Tambahkan Data</a>
 <table id="example" class="table table-striped table-bordered" style="width:100%">
         <thead>
             <tr>
