@@ -79,7 +79,7 @@
                   <div class="preview-thumbnail">
                     <div class="preview-icon bg-dark rounded-circle">
                       <i class="mdi mdi-onepassword  text-info"></i>
-                    </div>
+                    </div>F
                   </div>
                   <div class="preview-item-content">
                     <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>

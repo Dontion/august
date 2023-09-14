@@ -16,7 +16,7 @@ if (isset($_POST['regis'])){
             alert('Username sudah terdaftar, silahkan ganti!!');
             document.location.href='proses_regis.php';
         </script>";
-        return false;
+        
     }
 
     // cek password
