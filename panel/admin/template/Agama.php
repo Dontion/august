@@ -39,9 +39,9 @@
             <td><?= $data['user_update']; ?></td>
             <td><?= $data['hak_akses']; ?> (<?=$data['nama']; ?>)</td>
             <!--update button-->
-            <td align="center"><a class="btn btn-warning btn-sm" type="button" href="form_agama.php?id_Agama=<?= $data['id_agama']; ?>"><i class="mdi mdi-border-color"></i></a></td>
+            <td align="center"><a class="btn btn-warning btn-sm" type="button" href="update_agama.php?id_agama=<?= $data['id_agama']; ?>"><i class="mdi mdi-border-color"></i></a></td>
             <!-- delete button-->
-            <td align="center"><a class="btn btn-danger btn-sm" type="button" onclick="return confirm('Data akan di Hapus?')" href="delete_agama.php?id_user=<?= $data['id_agama']; ?>"> 
+            <td align="center"><a class="btn btn-danger btn-sm" type="button" onclick="return confirm('Yakin dihapus nihhh?')" href="delete_agama.php?id_agama=<?= $data['id_agama']; ?>"> 
             <i class="mdi mdi-close-circle-outline"></i></a></td>
         </tr>
     <?php

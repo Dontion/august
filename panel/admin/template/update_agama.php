@@ -17,20 +17,16 @@ if (isset($_POST['simpan'])) {
     $tgl_input = htmlspecialchars($_POST['tgl_input']);
     $user_input = htmlspecialchars($_POST['user_input']);
     $id_user = htmlspecialchars($_POST['id_user']);
+    $query = "UPDATE agama SET
+            id_agama='$id_agama',
+            nama_agama='$nama_agama',
+            tgl_update='$tgl_update',
+            user_update='$user_update',
+            id_user='$id_user'
+            WHERE id_agama='$id_agama'
+            ";
 
-    //cek id sudah terdaftar belum
-    $result = mysqli_query($conn, "SELECT id_agama FROM agama WHERE id_agama = '$id_agama'");
-    if (mysqli_fetch_assoc($result)) {
-        echo "
-        <script>
-            alert('ID sudah terdaftar, silahkan gantiii!');
-            document.location.href='form_agama.php';
-        </script>
-        ";
-        return false;
-    }
-
-    mysqli_query($conn, "INSERT INTO agama VALUES('$id_agama','$nama_agama','$tgl_input','$user_input','','','$id_user')");
+    mysqli_query($conn, $query);
 
     // var_dump($cek);
     // exit();
@@ -38,47 +34,53 @@ if (isset($_POST['simpan'])) {
     if (mysqli_affected_rows($conn) > 0) {
         echo "
         <script>
-            alert('Data Agama Berhasil dibuat');
+            alert('YEAYYYY data telah berhasil');
             document.location.href='Agama.php';
         </script>
         ";
     } else {
         echo "
         <script>
-            alert('Data Agama Gagal dibuat');
-            document.location.href='form_agama.php';
+            alert('WADUHHH datanya gagal dibuat guyss');
+            document.location.href='update_agama.php';
         </script>
         ";
     }
 }
-?>
+ $data = mysqli_query($conn, "SELECT *
+ FROM agama
+ LEFT JOIN user
+ ON agama.id_user = user.id_user WHERE id_agama='" . $_GET['id_agama'] . "'");
+ $edit = mysqli_fetch_assoc($data);
+?>   
+
 <body id="page-top">
 
 <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Agama Form</h4>
-                    <p class="card-description">  Agama Form </p>
-                    <form class="forms-sample" method="post" action="form_agama.php">
+                    <h4 class="card-title">Update Agama Form</h4>
+                    <p class="card-description">Update  Agama Form </p>
+                    <form class="forms-sample" method="post" action="update_agama.php">
                       <div class="form-group">
                         <label for="exampleInputName1">id_agama</label>
-                        <input type="text" class="form-control" name="id_agama" id="id_agama" placeholder="id_agama" required>
+                        <input type="text" class="form-control" name="id_agama" id="id_agama" placeholder="id_agama" value="<?= $edit['id_agama'] ?>" readonly>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputEmail3">Nama Agama</label>
-                        <input type="text" class="form-control" name="nama_agama" id="nama_agama" placeholder="nama agama" required>
+                        <input type="text" class="form-control" name="nama_agama" id="nama_agama" placeholder="nama agama" value="<?= $edit['nama_agama']; ?>" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputtgl_input4">Tanggal input</label>
-                        <input type="date" class="form-control" id="tgl_input" name="tgl_input" placeholder="tanggal input" required>
+                        <input type="date" class="form-control" id="tgl_input" name="tgl_input" placeholder="tanggal input" value="<?= $edit['tgl_input']; ?>" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName5">User Input</label>
-                        <input type="text" class="form-control" name="user_input" id="user_input" placeholder="user input" required>
+                        <input type="text" class="form-control" name="user_input" id="user_input" placeholder="user input" value="<?= $edit['user_input']; ?>" required>
                       </div>
                       <div class="form-group">
                         <label for="exampleSelectGender">Pilih Hak Akses</label>
-                        <select class="form-control" id="id_user" name="id_user"  required>
+                        <select class="form-control" id="id_user" name="id_user" value="<?= $edit['id_user']; ?>" required>
                                     <?php
                                     $sql = mysqli_query($conn, "SELECT * FROM user WHERE hak_akses = '$status' AND id_user='$_SESSION[id_user];'");
                                     while ($data = mysqli_fetch_assoc($sql)) {
