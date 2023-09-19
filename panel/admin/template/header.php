@@ -126,7 +126,7 @@
                 <li class="nav-item"> <a class="nav-link" href="Agama.php">Agama</a></li>
                 <li class="nav-item"> <a class="nav-link" href="Kewarganegaraan.php">Kewarganegaraan</a></li>
                 <li class="nav-item"> <a class="nav-link" href="Jurusan.php">Jurusan</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Jenjang</a></li>
+                <li class="nav-item"> <a class="nav-link" href="Jenjang.php">Jenjang</a></li>
               </ul>
             </div>
           </li>
