@@ -1,105 +1,60 @@
-<?php include "header.php"; ?>
+<?php include "header.php" ?>
 
-<div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Bordered table</h4>
-                    <p class="card-description"> Add class <code>.table-bordered</code>
-                    </p>
-                    <div class="table-responsive">
-                      <table class="table table-bordered">
-                        <thead>
-                          <tr>
-                            <th> # </th>
-                            <th> First name </th>
-                            <th> Progress </th>
-                            <th> Amount </th>
-                            <th> Deadline </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td> 1 </td>
-                            <td> Herman Beck </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 77.99 </td>
-                            <td> May 15, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 2 </td>
-                            <td> Messsy Adam </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $245.30 </td>
-                            <td> July 1, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 3 </td>
-                            <td> John Richards </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $138.00 </td>
-                            <td> Apr 12, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 4 </td>
-                            <td> Peter Meggik </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 77.99 </td>
-                            <td> May 15, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 5 </td>
-                            <td> Edward </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-danger" role="progressbar" style="width: 35%" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 160.25 </td>
-                            <td> May 03, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 6 </td>
-                            <td> John Doe </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-info" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 123.21 </td>
-                            <td> April 05, 2015 </td>
-                          </tr>
-                          <tr>
-                            <td> 7 </td>
-                            <td> Henry Tom </td>
-                            <td>
-                              <div class="progress">
-                                <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                              </div>
-                            </td>
-                            <td> $ 150.00 </td>
-                            <td> June 16, 2015 </td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-              </div>
 
-<?php include "footer.php" ?>
+<body id="page-top">
+    <div class="container">
+        <br><br><br><br><br>
+        <a class="btn btn-warning btn-sm" type="button" href="form_jurusan.php"><i class="mdi mdi-border-color"></i> Tambahkan Data</a> 
+<table id="example" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Jurusan</th>
+                <th>Tanggal Input</th>
+                <th>User Input</th>
+                <th>Tanggal Update</th>
+                <th>User Update</th>
+                <th>Akses</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+                            include 'connection.php';
+                            $no = 1;
+                            $query = "SELECT id_jurusan, CONCAT(jenjang.nama_jenjang,' ',jurusan.nama_jurusan) as kelas, jurusan.user_input,jurusan.tgl_input,jurusan.tgl_update,jurusan.user_update,CONCAT(user.hak_akses,' (',user.nama,')') as akses
+                                      FROM jurusan
+                                      LEFT JOIN jenjang
+                                      ON jurusan.id_jenjang = jenjang.id_jenjang LEFT JOIN user ON jurusan.id_user = user.id_user";
+                                      $sql = mysqli_query($conn, $query);
+                                      while ($data = mysqli_fetch_assoc($sql)) { 
+                                          ?> <tr>
+            <td><?= $no++; ?></td>
+            <td><?= $data['kelas']; ?></td>*/-
+            <td><?= $data['tgl_input']; ?></td>
+            <td><?= $data['user_input']; ?></td>
+            <td><?= $data['tgl_update']; ?></td>
+            <td><?= $data['user_update']; ?></td>
+            <td><?= $data['akses']; ?> </td>
+            <!--update button-->
+            <td align="center"><a class="btn btn-warning btn-sm" type="button" href="update_jurusan.php?id_jurusan=<?= $data['id_jurusan']; ?>"><i class="mdi mdi-border-color"></i></a></td>
+            <!-- delete button-->
+            <td align="center"><a class="btn btn-danger btn-sm" type="button" onclick="return confirm('Yakin dihapus nihhh?')" href="delete_jurusan.php?id_jurusan=<?= $data['id_jurusan']; ?>"> 
+            <i class="mdi mdi-close-circle-outline"></i></a></td>
+        </tr>
+    <?php
+    }
+?>
+        </tbody>
+    </table><br><br><br>
+    </div>
+    <!-- script -->
+    <script>
+        $(document).ready(function(){
+        new DataTable('#example');
+    })
+    </script>
+
+    <script src="assets/js/js_datatb_1.js"></script>
+    <script src="assets/js/js_datatb_3.js"></script>
