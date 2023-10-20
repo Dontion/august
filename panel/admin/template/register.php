@@ -7,7 +7,7 @@
                   <div class="card-body">
                     <h4 class="card-title">Register Form</h4>
                     <p class="card-description">  Register Form </p>
-                    <form class="forms-sample" method="post" action="proses_regis.php">
+                    <form class="forms-sample" method="post" action="proses_register.php">
                       <div class="form-group">
                         <label for="exampleInputName1">Username</label>
                         <input type="text" class="form-control" name="username" id="username" placeholder="Name" required>

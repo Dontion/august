@@ -145,7 +145,7 @@
             </a>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="data_pendaftar.php">
+            <a class="nav-link" href="data_pendaftaran.php">
               <span class="menu-icon">
                 <i class="mdi mdi-table-large"></i>
               </span>
@@ -156,11 +156,17 @@
             <?php if($_SESSION['hak_akses'] == 'admin'):    ?>
             
             <li class="nav-item nav-category">
-            <span class="nav-link">Daftar </span>
+            <span class="nav-link">Registrasi </span>
           </li>
-
-        
-
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="data_register.php">
+              <span class="menu-icon">
+                <i class="mdi mdi-table-large"></i>
+              </span>
+              <span class="menu-title">Data Register</span>
+            </a>
+            </li>
+      
           <li class="nav-item menu-items">
             <a class="nav-link" href="register.php">
               <span class="menu-icon">
